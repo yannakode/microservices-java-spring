@@ -18,7 +18,7 @@ public class AppConfig {
     public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        modelMapper.addConverter(stringToDateConverter()); // Adiciona um conversor para a data
+        modelMapper.addConverter(stringToDateConverter());
         return modelMapper;
     }
 

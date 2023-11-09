@@ -15,15 +15,13 @@ import java.util.Date;
 @NoArgsConstructor
 public class UserRequestDto {
 
-    @Size(min = 3, message = "First name must have at least 3 characters")
     @NotBlank(message = "First name cannot be blank")
     private String firstName;
 
-    @Size(min = 3, message = "First name must have at least 3 characters")
     @NotBlank(message = "Last name cannot be blank")
     private String lastName;
 
-    @CPF(message = "Invalid CPF")
+    @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "Invalid CPF format")
     @NotBlank(message = "CPF cannot be blank")
     private String cpf;
 
