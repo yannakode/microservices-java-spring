@@ -70,6 +70,8 @@ public class UserServiceImpl implements UserService {
         Optional<User> getEmailResponse = userRepository.findByEmail(userRequestDto.getEmail());
         if(getEmailResponse.isPresent()) throw new DataIntegrityViolationException("User Email is already registered");
 
+        if(user.getPassword().length() < 6) throw new InvalidDataException("Password must contain 6 or more characters", "password");
+
         String encodedPassword = passwordEncoder.encode(userRequestDto.getPassword());
         user.setPassword(encodedPassword);
 

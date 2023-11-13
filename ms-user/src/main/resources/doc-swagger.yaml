@@ -205,3 +205,16 @@ components:
         token:
           type: string
           description: The token created when a login attempt is successful.
+
+    EventNotification:
+      type: object
+      properties:
+        event:
+          type: string
+          description: The type of event.
+        email:
+          type: string
+          description: The email associated with the event.
+        date:
+          type: string
+          description: The date of the event notification.
