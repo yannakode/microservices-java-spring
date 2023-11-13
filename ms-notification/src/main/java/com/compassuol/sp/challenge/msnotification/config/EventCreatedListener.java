@@ -21,10 +21,6 @@ public class EventCreatedListener {
 
         Notification notification = objectMapper.readValue(message, Notification.class);
 
-        System.out.println("Notification: " + notification.getNotification());
-        System.out.println("Email: " + notification.getEmail());
-        //System.out.println("Date: " + notification.getDate());
-
         notificationRepository.save(notification);
         System.out.println("Saved Notification: " + notification.getId());
     }

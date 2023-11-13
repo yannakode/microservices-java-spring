@@ -1,11 +1,10 @@
 package com.compassuol.sp.challenge.msuser.model.dto;
 
-import com.compassuol.sp.challenge.msuser.model.entity.UserRole;
+import com.compassuol.sp.challenge.msuser.model.entity.enums.UserRole;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.*;
 import lombok.*;
-import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;

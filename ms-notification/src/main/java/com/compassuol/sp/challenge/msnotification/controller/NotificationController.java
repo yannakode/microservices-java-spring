@@ -1,8 +1,6 @@
 package com.compassuol.sp.challenge.msnotification.controller;
 
-import com.compassuol.sp.challenge.msnotification.model.Notification;
 import com.compassuol.sp.challenge.msnotification.model.dto.NotificationDto;
-import com.compassuol.sp.challenge.msnotification.repository.NotificationRepository;
 import com.compassuol.sp.challenge.msnotification.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

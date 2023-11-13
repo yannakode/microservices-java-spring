@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class NotificationDto {
-    private String notification;
+    private String event;
     private String email;
+    private String date;
 }

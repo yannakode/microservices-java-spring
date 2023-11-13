@@ -3,6 +3,7 @@ package com.compassuol.sp.challenge.msuser.services;
 import com.compassuol.sp.challenge.msuser.model.dto.UserRequestDto;
 import com.compassuol.sp.challenge.msuser.model.dto.UserResponseDto;
 import com.compassuol.sp.challenge.msuser.model.entity.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.Optional;
@@ -10,7 +11,7 @@ import java.util.Optional;
 public interface UserService {
     Optional<User> loadUserByUsername(String email) throws UsernameNotFoundException;
 
-    UserResponseDto createUser(UserRequestDto userRequestDto);
+    UserResponseDto createUser(UserRequestDto userRequestDto) throws JsonProcessingException;
 
     UserResponseDto getUsersById(Long id);
 

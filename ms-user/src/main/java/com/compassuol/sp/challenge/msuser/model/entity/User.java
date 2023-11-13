@@ -1,5 +1,6 @@
 package com.compassuol.sp.challenge.msuser.model.entity;
 
+import com.compassuol.sp.challenge.msuser.model.entity.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

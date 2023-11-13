@@ -10,15 +10,17 @@ import org.springframework.stereotype.Component;
 public class NotificationDtoAssembler {
     public NotificationDto toDto(Notification notification){
         NotificationDto notificationDto = new NotificationDto();
-        notificationDto.setNotification(notification.getNotification());
+        notificationDto.setEvent(notification.getEvent());
         notificationDto.setEmail(notification.getEmail());
+        notificationDto.setDate(notification.getDate());
         return notificationDto;
     }
 
     public Notification toModel(NotificationDto notificationDto){
         Notification notification = new Notification();
-        notification.setNotification(notificationDto.getNotification());
+        notification.setEvent(notificationDto.getEvent());
         notification.setEmail(notificationDto.getEmail());
+        notificationDto.setDate(notificationDto.getDate());
         return notification;
     }
 }

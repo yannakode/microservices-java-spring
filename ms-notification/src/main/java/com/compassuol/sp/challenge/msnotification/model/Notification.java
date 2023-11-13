@@ -19,6 +19,7 @@ public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String notification;
+    private String event;
     private String email;
+    private String date;
 }

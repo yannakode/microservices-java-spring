@@ -6,6 +6,7 @@ import com.compassuol.sp.challenge.msuser.model.dto.UserRequestDto;
 import com.compassuol.sp.challenge.msuser.model.dto.UserResponseDto;
 import com.compassuol.sp.challenge.msuser.services.impl.UserServiceImpl;
 import com.compassuol.sp.challenge.msuser.services.impl.commons.UserConstants;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -33,7 +34,7 @@ class UserControllerTest {
     }
 
     @Test
-    void createUser_WithValidUserData_ReturnsCreatedStatus() {
+    void createUser_WithValidUserData_ReturnsCreatedStatus() throws JsonProcessingException {
         when(userService.createUser(eq(UserConstants.USER_REQUEST_DTO))).thenReturn(UserConstants.USER_RESPONSE_DTO);
 
         ResponseEntity<UserResponseDto> responseEntity = userController.createUser(UserConstants.USER_REQUEST_DTO);
@@ -60,7 +61,7 @@ class UserControllerTest {
     }
 
     @Test
-    void updateUser_WithValidUserIdAndUserData_ReturnsOkStatus() {
+    void updateUser_WithValidUserIdAndUserData_ReturnsOkStatus() throws JsonProcessingException {
         Long userId = 1L;
 
         UserRequestDto userRequestDto = new UserRequestDto();

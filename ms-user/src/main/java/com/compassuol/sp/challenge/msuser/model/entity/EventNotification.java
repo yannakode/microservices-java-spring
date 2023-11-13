@@ -9,9 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EventNotification {
-    @JsonProperty("notification")
-    private String notification;
+    @JsonProperty("event")
+    private String event;
 
     @JsonProperty("email")
     private String email;
+    @JsonProperty("date")
+    private String date;
 }

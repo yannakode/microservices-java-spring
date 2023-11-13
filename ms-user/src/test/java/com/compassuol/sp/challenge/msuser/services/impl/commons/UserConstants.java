@@ -2,8 +2,7 @@ package com.compassuol.sp.challenge.msuser.services.impl.commons;
 
 import com.compassuol.sp.challenge.msuser.model.dto.UserRequestDto;
 import com.compassuol.sp.challenge.msuser.model.dto.UserResponseDto;
-import com.compassuol.sp.challenge.msuser.model.entity.User;
-import com.compassuol.sp.challenge.msuser.model.entity.UserRole;
+import com.compassuol.sp.challenge.msuser.model.entity.enums.UserRole;
 
 import java.util.Date;
 
