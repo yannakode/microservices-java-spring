@@ -1,0 +1,207 @@
+openapi: 3.0.1
+info:
+  title: User Management Microservice
+  version: v1
+  description: User Management Microservice for Compass UOL Challenge
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: http://localhost:8080
+    description: Local server
+tags:
+  - name: User Management
+    description: Endpoints for managing users
+paths:
+  /v1/users:
+    post:
+      tags:
+        - User Management
+      summary: Create a new user
+      description: Create a new user and save it in the database
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequestDto'
+        required: true
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDto'
+  /v1/login:
+    post:
+      tags:
+        - User Management
+      summary: User login
+      description: Authenticate and log in a user
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationDto'
+        required: true
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponseDto'
+  /v1/users/{id}:
+    get:
+      tags:
+        - User Management
+      summary: Get user by ID
+      description: Retrieve user details by ID
+      operationId: getUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDto'
+    put:
+      tags:
+        - User Management
+      summary: Modify user details
+      description: Update user details by ID
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequestDto'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDto'
+  /v1/users/{id}/password:
+    put:
+      tags:
+        - User Management
+      summary: Change user password
+      description: Update the password of a user identified by their ID.
+      operationId: updatePassword
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDto'
+components:
+  schemas:
+    UserRequestDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: The first name of the user.
+        lastName:
+          type: string
+          description: The last name of the user.
+        cpf:
+          type: string
+          pattern: "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}"
+          description: The CPF (Brazilian ID) of the user.
+        birthdate:
+          type: string
+          format: date
+          description: The birthdate of the user in "yyyy-MM-dd" format.
+        email:
+          type: string
+          format: email
+          description: The email address of the user.
+        password:
+          type: string
+          description: The password of the user.
+        active:
+          type: boolean
+          description: Indicates whether the user is active or not.
+        role:
+          type: object
+          description: The role of the user.
+
+    UserResponseDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: The first name of the user.
+        lastName:
+          type: string
+          description: The last name of the user.
+        cpf:
+          type: string
+          description: The CPF (Brazilian ID) of the user.
+        birthdate:
+          type: string
+          format: date
+          description: The birthdate of the user.
+        email:
+          type: string
+          format: email
+          description: The email address of the user.
+        active:
+          type: boolean
+          description: Indicates whether the user is active or not.
+        role:
+          type: object
+          description: The role of the user.
+
+    AuthenticationDto:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email address for authentication.
+        password:
+          type: string
+          description: The password for authentication.
+
+
+    LoginResponseDto:
+      type: object
+      properties:
+        token:
+          type: string
+          description: The token created when a login attempt is successful.
