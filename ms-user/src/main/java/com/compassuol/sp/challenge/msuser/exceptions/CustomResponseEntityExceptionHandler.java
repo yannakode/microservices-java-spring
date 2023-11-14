@@ -1,6 +1,5 @@
 package com.compassuol.sp.challenge.msuser.exceptions;
 
-import com.compassuol.sp.challenge.msuser.exceptions.InvalidDataException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
