@@ -14,6 +14,7 @@ public class EventNotification {
 
     @JsonProperty("email")
     private String email;
+
     @JsonProperty("date")
     private String date;
 }

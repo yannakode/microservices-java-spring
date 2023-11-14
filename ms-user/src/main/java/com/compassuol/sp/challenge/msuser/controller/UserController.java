@@ -1,6 +1,5 @@
 package com.compassuol.sp.challenge.msuser.controller;
 
-import com.compassuol.sp.challenge.msuser.model.entity.EventNotification;
 import com.compassuol.sp.challenge.msuser.model.dto.AuthenticationDto;
 import com.compassuol.sp.challenge.msuser.model.dto.LoginResponseDTO;
 import com.compassuol.sp.challenge.msuser.model.dto.UserRequestDto;
@@ -11,8 +10,6 @@ import com.compassuol.sp.challenge.msuser.repository.UserRepository;
 import com.compassuol.sp.challenge.msuser.services.NotificationService;
 import com.compassuol.sp.challenge.msuser.services.impl.UserServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.validation.Valid;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +17,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
